@@ -1,3 +1,10 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include<ctype.h>
+#include "funcoes.h"
+
+
 void lidando_idade_negativas(FILE *arquivo,int cont){
   int i = 0, nova_idade = 0;
   for(i = 0; i < cont; i++){
