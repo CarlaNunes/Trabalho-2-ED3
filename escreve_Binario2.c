@@ -1,3 +1,9 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include<ctype.h>
+#include "funcoes.h"
+
 //Nessa função, quando o nome o twiiter foram menores que os declarados vamos completar com "$"
 //Refazer....
 //Versão com impressão campo a campo
