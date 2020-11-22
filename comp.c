@@ -1,3 +1,9 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include<ctype.h>
+#include "funcoes.h"
+
 int comp(const void *p, const void *q) {
   struct index_p *a = (struct index_p*)p;
   struct index_p *b = (struct index_p*)q;
