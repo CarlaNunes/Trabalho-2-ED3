@@ -1,3 +1,10 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include<ctype.h>
+#include "funcoes.h"
+
+
 //Completar documentação da função
 
 int le_arquivo(FILE *arquivo,char nomeArquivoCsv[20]){
