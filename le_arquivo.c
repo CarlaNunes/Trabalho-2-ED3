@@ -6,7 +6,6 @@
 
 
 //Completar documentação da função
-
 int le_arquivo(FILE *arquivo,char nomeArquivoCsv[20]){
     int i = 0;
 
@@ -14,7 +13,7 @@ int le_arquivo(FILE *arquivo,char nomeArquivoCsv[20]){
     char cabecalho[bufSize];
 
     if ((arquivo = fopen(nomeArquivoCsv, "r")) == NULL) {
-        printf("\n Falha na abertura do arquivo.\n");
+        printf("Falha na abertura do arquivo.\n");
     } else {
 #if 1 
         const char separador[2] = ",";
@@ -29,53 +28,27 @@ int le_arquivo(FILE *arquivo,char nomeArquivoCsv[20]){
             
                 
                 //printf("idPessoa: %s\n", token);
-                pessoa[i].idPessoa = atoi(token);
+              dados[i].idPessoaQueSegue = atoi(token);
          
                token = strtok(NULL, separador);
-               //printf("nomePessoa: %s\n", token);
-               int tam = strlen(token);
-               if(tam < 3){
-                  char lixo[] = "$";
-                  strcpy(pessoa[i].pessoa, lixo);
-                  pessoa[i].idade= atoi(token);
-                  // printf("nomePessoa: %s\n", token);
-                   token = strtok(NULL, separador);
-                   //printf("twitterPessoa: %s\n", token);
-                   strcpy(pessoa[i].twitterPessoa, token);
-                                      
-               }
-               else{
-                 
-                  strcpy(pessoa[i].pessoa, token);
-                  token = strtok(NULL, separador);
-                  //printf("idadePessoa: %s\n", token);
-                  pessoa[i].idade = atoi(token);
+               dados[i].idPessoaQueESeguida = atoi(token);
 
-                  token = strtok(NULL, separador);
-                 // printf("twitterPessoa: %s\n", token);
-                  strcpy(pessoa[i].twitterPessoa, token);
-                  
-               }
+               token = strtok(NULL, separador); 
+               strcpy(dados[i].grauAmizade, token); 
 
+               token = strtok(NULL, separador); 
+               strcpy(dados[i].dataInicioQueSegue, token); 
+
+               token = strtok(NULL, separador); 
+               strcpy(dados[i].dataFimQueSegue, token); 
             
+               
               
-             
-            
-            
              
             i += 1;
              
         }
-        /*
-        for(i = 0; i < 1200; i++){
-            printf("----------------------\n");
-            printf("idPessoa: %d\n", pessoa[i].idPessoa);
-            printf("nomePessoa: %s\n", pessoa[i].pessoa);
-            printf("idadePessoa %d \n",pessoa[i].idade);
-            printf("twitterPessoa: %s\n", pessoa[i].twitterPessoa);
-            printf("\n");
-        }
-        */
+     
 #endif
         fclose(arquivo);
     }
