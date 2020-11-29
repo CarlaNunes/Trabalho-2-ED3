@@ -7,14 +7,14 @@ typedef int tipoChave;
 typedef int rrn;
 typedef char* string;
 
- typedef struct pessoa{
+typedef struct dados{
     char removido; //Verificar esse valor depois, na revisão
-    int idPessoa;
-    char pessoa[40];
-    int idade;
-    char twitterPessoa[15];
-    
-}Pessoa;
+    int idPessoaQueSegue; 
+    int idPessoaQueESeguida;
+    char grauAmizade[3]; 
+    char dataInicioQueSegue[10];
+    char dataFimQueSegue[10];
+}Dados;
 
 typedef struct index_p  {
 	tipoChave idPessoa;
@@ -23,12 +23,16 @@ typedef struct index_p  {
 
 
 
-Pessoa pessoa[2000];
-Pessoa pessoa_aux[200];//Para a funcionalidade 4
-Pessoa pessoa_aux2[200];//Para a funcionalidade 5
+Dados dados[2000];
+Dados dados_aux[200];//Para a funcionalidade 4
+Dados dados_aux2[200];//Para a funcionalidade 5
 Index_p index_p[2000];
+
 //**************************************************************************
 //___________Funções_______________________________
 int le_arquivo(FILE *arquivo,char nomeArquivoCsv[20]);
 void lidando_idade_negativas(FILE *arquivo,int cont);
 void escreve_Binario2(FILE *arquivo, int cont,char nomeArquivoBinario[20]);
+int comp(const void *p, const void *q);
+void atualizar_status(FILE *arquivo,int cont,char nomeArquivoBinario[20]);
+void binarioNaTela2(char *nomeArquivoBinario);
