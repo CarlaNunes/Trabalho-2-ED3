@@ -3,6 +3,9 @@
 #include <stdlib.h>
 #include<ctype.h>
 #include "funcoes.h"
+/*
+Irá ordenar de modo decrescente, pelo idPessoaQueSegue, se caso, este atributo for igual, usare
+*/
 
 int comp2(const void *p, const void *q) {
   struct dados *a = (struct dados*)p;
