@@ -1,3 +1,9 @@
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include<ctype.h>
+#include "funcoes.h"
 /*
 Cria o arquivo de índice primário.
 */
