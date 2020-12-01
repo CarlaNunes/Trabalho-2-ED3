@@ -2,11 +2,11 @@
 #include <string.h>
 #include <stdlib.h>
 #include<ctype.h>
-
+typedef int tipoChave;
 
 
 typedef struct dados{
-    char removido; //Verificar esse valor depois, na revisão
+    char removido;
     int idPessoaQueSegue; 
     int idPessoaQueESeguida;
     char grauAmizade[3]; 
@@ -15,8 +15,23 @@ typedef struct dados{
 }Dados;
 
 Dados dados[2000];
-Dados dados_aux[200];//Para a funcionalidade 4
-Dados dados_aux2[200];//Para a funcionalidade 5
+
+typedef struct pessoa{
+    char removido; 
+    int idPessoa;
+    char pessoa[40];
+    int idade;
+    char twitterPessoa[15];
+    
+}Pessoa;
+typedef struct index_p  {
+	tipoChave idPessoa;
+  int rrn;
+}Index_p;
+
+Index_p index_p[2000];
+Pessoa pessoa[2000];
+
 
 //**************************************************************************
 //___________Funções_______________________________
