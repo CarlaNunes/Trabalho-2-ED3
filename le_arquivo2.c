@@ -3,10 +3,12 @@
 #include <stdlib.h>
 #include<ctype.h>
 #include "funcoes.h"
+/*
+A função abaixo, irá ler o arquivo csv, composto pelas pessoas (trabalho 1) e armazenar os valores lidos em cada v=componente da struct correspondente.
+Tudo isso, usando a função strtok, que quando encontrar uma vírgula faz, a "divisão".
+*/
 
-
-//Completar documentação da função
-int le_arquivo(FILE *arquivo,char nomeArquivoCsv[20]){
+int le_arquivo2(FILE *arquivo,char nomeArquivoCsv[20]){
     int i = 0;
 
     int bufSize = 300;
@@ -20,10 +22,7 @@ int le_arquivo(FILE *arquivo,char nomeArquivoCsv[20]){
         char buffer[bufSize];
         fgets (cabecalho, bufSize, arquivo); 
         while( fgets (buffer, bufSize, arquivo)!=NULL ) {
-            //printf("=============================\n");
-            //puts(buffer);
-            
-            //É bom verificar se token != NULL
+           
             char *token = strtok(buffer, separador);
             
                 
