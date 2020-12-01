@@ -8,7 +8,7 @@ A função abaixo, irá ler o arquivo csv, composto pelas pessoas (trabalho 1) e
 Tudo isso, usando a função strtok, que quando encontrar uma vírgula faz, a "divisão".
 */
 
-int le_arquivo2(FILE *arquivo,char nomeArquivoCsv[20]){
+int le_arquivo(FILE *arquivo,char nomeArquivoCsv[20]){
     int i = 0;
 
     int bufSize = 300;
@@ -20,7 +20,7 @@ int le_arquivo2(FILE *arquivo,char nomeArquivoCsv[20]){
 #if 1 
         const char separador[2] = ",";
         char buffer[bufSize];
-        fgets (cabecalho, bufSize, arquivo); 
+        fgets (cabecalho, bufSize, arquivo); //irá ler o cabeçalho primeiro
         while( fgets (buffer, bufSize, arquivo)!=NULL ) {
            
             char *token = strtok(buffer, separador);
