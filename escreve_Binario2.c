@@ -10,23 +10,23 @@
 //Também com preenchimento de campos "pequenos com lixo"
 void escreve_Binario2(FILE *arquivo, int cont,char nomeArquivoBinario[20]){
   
-  char status = '0',removido;
-  char grau[3],data1[10],data2[10];
-  int quantidadePessoas = cont;
-  char lixo[] = "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$";
+  char status = '0',removido;//Primeiro item do cabeçalho
+  char grau[3],data1[10],data2[10];//Variaveis auxiliares para armazenar os valores da struct para impressão.
+  int quantidadePessoas = cont;//Segundo item do cabeçalho
+  char lixo[] = "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$";//Terceiro item do cabeçalho
 
   if ((arquivo = fopen(nomeArquivoBinario, "wb")) == NULL) {
-        printf("Falha na abertura do arquivo.\n");
+        printf("\n Falha no carregamento do arquivo.\n");
     }
      // fprintf(arquivo,"%s%d%s",&status,quantidadePessoas,lixo);
+   //------Início escrita em arquivo do cabeçalho--------------
      fwrite(&status,sizeof(char) ,1, arquivo);
      fwrite(&quantidadePessoas,sizeof(int) ,1, arquivo);
      fwrite(&lixo, sizeof(char) ,1, arquivo);
-
+  //------Fim escrita em arquivo do cabeçalho--------------
   else{
     for(int i = 0; i<cont; i++){
-      
-            int tam = 0, tam2 = 0;
+      //------------Início escrita dos valores da struct--------
             removido = '1';
             dados[i].removido = '1';
             fwrite(&removido,1,sizeof(char),arquivo);
@@ -40,11 +40,11 @@ void escreve_Binario2(FILE *arquivo, int cont,char nomeArquivoBinario[20]){
             fwrite(&grau,1,sizeof(char),arquivo);
 
             strcpy(data1,dados[i].dataInicioQueSegue);
-            fwrite(&grau,1,sizeof(char),arquivo);
+            fwrite(&data1,1,sizeof(char),arquivo);
 
-            strcpy(grau,dados[i].dataFimQueSegue);
-            fwrite(&grau,1,sizeof(char),arquivo);
-
+            strcpy(data2,dados[i].dataFimQueSegue);
+            fwrite(&data2,1,sizeof(char),arquivo);
+            //------------Fim escrita dos valores da struct--------
         }
   }
       
