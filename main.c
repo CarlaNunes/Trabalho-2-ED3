@@ -4,6 +4,20 @@
 #include<ctype.h>
 #include "funcoes.h"
 
+
+/*
+O que falta:
+-Funcionalide 8 ok 
+-Parte do trabalho 1 agora -->>>Verificar
+-Verificar possiveis erros
+-Testes
+-Colocar no git ok
+-Colocar no run codes 
+-Colocar função atualiza status
+-Documentar código-->>>Incompleto
+-Verificar se as especificações foram respeitadas
+*/
+
 int main() {
    
     FILE *arquivo;
@@ -28,10 +42,11 @@ int main() {
       index_p[i].idPessoa = pessoa[i].idPessoa;
       index_p[i].rrn = i;
     }
-    
+    escreve_Binario2(arquivo,cont,nomeArquivoBinario); 
   //Função nativa do C, para ordenar os indices
    //A função abaixo, é nativa do C. Ela aplica o algoritmo de ordenaçãop qsort, juntamente com a função 'comp' que ordena de modo decrescente os elementos lidos
    //O uso, foi recomendado por um colega de curso que já se formou.
+   
    qsort(index_p,cont,sizeof(struct index_p),comp);
    //Criando o arquivo de indice primário depois da ordenação  
    insereIndex(arquivo,cont,nomeArquivoIndice);       
@@ -43,7 +58,7 @@ int main() {
           dados[i].dataInicioQueSegue[10] = '\0';
           dados[i].dataFimQueSegue[10] = '\0';
         }
-        escreve_Binario2(arquivo,cont,nomeArquivoBinario);
+        escreve_Binario3(arquivo,cont,nomeArquivoBinario);
         if(alternativa == 6){
           scanf("%s",nomeArquivoCsv);
           scanf("%s",nomeArquivoBinario);
@@ -65,6 +80,8 @@ int main() {
            //exibir_campos2(arquivo, cont, nomeArquivoOrdenado);
            binarioNaTela1(nomeArquivoBinario, nomeArquivoOrdenado); 
        }
+        
+       
        if(alternativa == 8){
           scanf("%s",campo);
         if(strcmp("id",campo)==0){
