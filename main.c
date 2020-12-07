@@ -18,6 +18,7 @@ O que falta:
 -Verificar se as especificações foram respeitadas
 */
 
+
 int main() {
    
     FILE *arquivo;
@@ -31,6 +32,10 @@ int main() {
     int numInseri = 0;
      int numAtu = 0;
      int retorno = 0;
+    for(i = 0; i<cont; i++){
+          dados[i].dataInicioQueSegue[10] = '\0';
+          dados[i].dataFimQueSegue[10] = '\0';
+        }
     ///****Aqui começa a inserção dos valores de entrada para o manuseio dos arquivos
     scanf("%d",&alternativa);
     scanf("%s",nomeArquivoCsv);
